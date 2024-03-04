@@ -1,0 +1,4 @@
+apiVersion: v2
+name: pi-home
+description: Helm Chart for the homepage on my Raspberry Pi
+version: 0.1.0
