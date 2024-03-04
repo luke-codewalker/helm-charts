@@ -1,0 +1,16 @@
+application:
+  name: progress-tracker
+
+image:
+  name: lukecodewalker/progress-tracker
+  tag: 1.2.0
+
+resources:
+  limits:
+    cpu: "0.5"
+    memory: "500Mi"
+  requests:
+    cpu: "0.25"
+    memory: "250Mi"
+
+host: localhost
