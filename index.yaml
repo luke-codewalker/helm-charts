@@ -17,4 +17,13 @@ entries:
     urls:
     - https://github.com/luke-codewalker/helm-charts/releases/download/pi-home-0.1.0/pi-home-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-04T20:06:27.62676721Z"
+  progress-tracker:
+  - apiVersion: v2
+    created: "2024-03-04T20:15:23.328614707Z"
+    description: Helm Chart for the progress-tracker on my Raspberry Pi cluster
+    digest: 0dd8ab6e3b079ce77acac99d5e13d241b4a4b4e848ba059c6dfce100e4c2a147
+    name: progress-tracker
+    urls:
+    - https://github.com/luke-codewalker/helm-charts/releases/download/progress-tracker-0.1.0/progress-tracker-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-03-04T20:15:23.328623994Z"
