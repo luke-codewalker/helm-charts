@@ -1,4 +1,4 @@
 apiVersion: v2
 name: progress-tracker
 description: Helm Chart for the progress-tracker on my Raspberry Pi cluster
-version: 0.1.0
+version: 0.1.1
