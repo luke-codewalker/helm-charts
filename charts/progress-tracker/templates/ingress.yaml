@@ -2,9 +2,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: progress-tracker-ingress
-  namespace:  {{ .Release.Namespace }}
+  namespace:  {{ .Values.application.name }}
   annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-ingress-stripprefix@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: {{ .Values.application.name }}-ingress-stripprefix@kubernetescrd
 spec:
   rules:
     - host: {{ .Values.host | default "localhost"}}
@@ -23,7 +23,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: ingress-stripprefix
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.application.name }}
 spec:
   stripPrefix:
     prefixes:
