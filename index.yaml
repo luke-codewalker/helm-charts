@@ -19,6 +19,14 @@ entries:
     version: 0.1.0
   progress-tracker:
   - apiVersion: v2
+    created: "2024-03-08T07:30:11.982397701Z"
+    description: Helm Chart for the progress-tracker on my Raspberry Pi cluster
+    digest: cc7ae822f9275f07821796db9620c4149547c992a617f248c832a2b413deaea0
+    name: progress-tracker
+    urls:
+    - https://github.com/luke-codewalker/helm-charts/releases/download/progress-tracker-0.1.1/progress-tracker-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     created: "2024-03-04T20:15:23.328614707Z"
     description: Helm Chart for the progress-tracker on my Raspberry Pi cluster
     digest: 0dd8ab6e3b079ce77acac99d5e13d241b4a4b4e848ba059c6dfce100e4c2a147
@@ -26,4 +34,4 @@ entries:
     urls:
     - https://github.com/luke-codewalker/helm-charts/releases/download/progress-tracker-0.1.0/progress-tracker-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-04T20:15:23.328623994Z"
+generated: "2024-03-08T07:30:11.982413771Z"
