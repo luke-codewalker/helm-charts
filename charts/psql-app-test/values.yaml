@@ -1,0 +1,16 @@
+application:
+  name: psql-app-test
+
+image:
+  name: lukecodewalker/psql-app-test
+  tag: latest
+
+resources:
+  limits:
+    cpu: "0.5"
+    memory: "500Mi"
+  requests:
+    cpu: "0.25"
+    memory: "250Mi"
+
+host: localhost
