@@ -50,4 +50,14 @@ entries:
     urls:
     - https://github.com/luke-codewalker/helm-charts/releases/download/progress-tracker-0.1.0/progress-tracker-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-25T13:28:09.819749845Z"
+  psql-app-test:
+  - apiVersion: v2
+    created: "2024-11-04T21:02:29.278164542Z"
+    description: Helm Chart for a dummy server app for testing my central postgres
+      in my Raspberry Pi cluster
+    digest: 68f4f41751759c5c3197ef706ee91675f0c648035c80afb17f656926cddec360
+    name: psql-app-test
+    urls:
+    - https://github.com/luke-codewalker/helm-charts/releases/download/psql-app-test-0.2.0/psql-app-test-0.2.0.tgz
+    version: 0.2.0
+generated: "2024-11-04T21:02:29.278180542Z"
