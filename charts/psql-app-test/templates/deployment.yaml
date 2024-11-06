@@ -21,6 +21,8 @@ spec:
           env:
             - name: "PORT"
               value: {{ (.Values.port | default 1991) | quote }}
+            - name: "DATABASE_URL"
+              value: {{ .Values.databaseUrl | quote }}
 
           resources:
             limits:
