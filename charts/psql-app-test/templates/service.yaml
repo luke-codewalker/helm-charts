@@ -9,4 +9,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 1991
+      targetPort: {{ .Values.port | default 1991 }}
