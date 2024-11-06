@@ -14,4 +14,3 @@ resources:
     memory: "250Mi"
 
 host: localhost
-databaseUrl: ""
