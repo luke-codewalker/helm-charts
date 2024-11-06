@@ -17,7 +17,11 @@ spec:
         - name: {{ .Values.application.name }}
           image:  "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           ports:
-          - containerPort: 1991
+            - containerPort: {{ .Values.port | default "1991" }}
+          env:
+            - name: "PORT"
+              value: {{ .Values.port | default "1991" }}
+
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu}}
