@@ -18,7 +18,10 @@ spec:
           image:  "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           env:
             - name: "DATABASE_URL"
-              value: {{ .Values.databaseUrl | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: database-url-secret
+                  key: DATABASE_URL 
           command: ["npx", "prisma", "migrate", "deploy"]
       containers:
         - name: {{ .Values.application.name }}
@@ -29,7 +32,10 @@ spec:
             - name: "PORT"
               value: {{ (.Values.port | default 1991) | quote }}
             - name: "DATABASE_URL"
-              value: {{ .Values.databaseUrl | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: database-url-secret
+                  key: DATABASE_URL
 
           resources:
             limits:
