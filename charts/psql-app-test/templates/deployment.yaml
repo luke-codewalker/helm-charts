@@ -13,6 +13,13 @@ spec:
       labels:
         app: {{ .Values.application.name }}
     spec:
+      initContainers:
+        - name: {{ .Values.application.name }}-init
+          image:  "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          env:
+            - name: "DATABASE_URL"
+              value: {{ .Values.databaseUrl | quote }}
+          command: ["npx", "prisma", "migrate", "deploy"]
       containers:
         - name: {{ .Values.application.name }}
           image:  "{{ .Values.image.name }}:{{ .Values.image.tag }}"
