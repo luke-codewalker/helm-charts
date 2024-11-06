@@ -1,4 +1,4 @@
 apiVersion: v2
 name: psql-app-test
 description: Helm Chart for a dummy server app for testing my central postgres in my Raspberry Pi cluster
-version: 0.2.0
+version: 0.2.1
