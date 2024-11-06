@@ -52,6 +52,15 @@ entries:
     version: 0.1.0
   psql-app-test:
   - apiVersion: v2
+    created: "2024-11-06T17:15:36.34677938Z"
+    description: Helm Chart for a dummy server app for testing my central postgres
+      in my Raspberry Pi cluster
+    digest: ab96b10ad3fd56b41cf4481f5cbecf2465924eff7b2a1875f2c735a5767f121e
+    name: psql-app-test
+    urls:
+    - https://github.com/luke-codewalker/helm-charts/releases/download/psql-app-test-0.2.2/psql-app-test-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
     created: "2024-11-06T17:02:33.571406146Z"
     description: Helm Chart for a dummy server app for testing my central postgres
       in my Raspberry Pi cluster
@@ -69,4 +78,4 @@ entries:
     urls:
     - https://github.com/luke-codewalker/helm-charts/releases/download/psql-app-test-0.2.0/psql-app-test-0.2.0.tgz
     version: 0.2.0
-generated: "2024-11-06T17:02:33.571426914Z"
+generated: "2024-11-06T17:15:36.34680634Z"
