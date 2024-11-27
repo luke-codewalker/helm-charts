@@ -1,0 +1,17 @@
+application:
+  name: home-weather-stations-api
+
+image:
+  name: lukecodewalker/home-weather-stations-api
+  tag: 1.0.0
+
+resources:
+  limits:
+    cpu: "0.5"
+    memory: "500Mi"
+  requests:
+    cpu: "0.25"
+    memory: "250Mi"
+
+host: localhost
+port: 80
