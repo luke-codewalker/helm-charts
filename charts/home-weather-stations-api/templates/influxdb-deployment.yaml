@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb
+  namespace: {{ .Values.application.name }}
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: influxdb
+  template:
+    metadata:
+      labels:
+        app: influxdb
+    spec:
+      containers:
+        - name: influxdb
+          image: "influxdb:2"
+          ports:
+          - containerPort: 8086
+           env:
+            - name: "DOCKER_INFLUXDB_INIT_MODE"
+              value: setup
+            - name: "DOCKER_INFLUXDB_INIT_ADMIN_TOKEN"
+              valueFrom:
+                secretKeyRef:
+                  name: influx-db
+                  key: INFLUXDB_ADMIN_TOKEN 
+            - name: "DOCKER_INFLUXDB_INIT_ORG"
+              valueFrom:
+                secretKeyRef:
+                  name: influx-db
+                  key: INFLUXDB_ORG 
+            - name: "DOCKER_INFLUXDB_INIT_BUCKET"
+              valueFrom:
+                secretKeyRef:
+                  name: influx-db
+                  key: INFLUXDB_BUCKET 
+            - name: "DOCKER_INFLUXDB_INIT_USERNAME"
+              valueFrom:
+                secretKeyRef:
+                  name: influx-db
+                  key: INFLUXDB_USERNAME
+            - name: "DOCKER_INFLUXDB_INIT_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  name: influx-db
+                  key: INFLUXDB_PASSWORD 
+
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu}}
+              memory: {{ .Values.resources.limits.memory}}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory}}
+
+          volumeMounts:
+            - name: influxdb-data
+              mountPath: /var/lib/influxdb2
+            - name: influxdb-config
+              mountPath: /etc/influxdb2
+              
+      volumes:
+        - name: influxdb-data
+          persistentVolumeClaim:
+            claimName: influxdb-data
+        - name: influxdb-config
+          persistentVolumeClaim:
+            claimName: influxdb-config

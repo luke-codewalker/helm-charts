@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.application.name }}
+  namespace: {{ .Values.application.name }}
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: {{ .Values.application.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.application.name }}
+    spec:
+      initContainers:
+      - name: wait-for-influxdb
+        image: busybox:latest
+        command:
+          - sh
+          - -c
+          - >
+            while ! nc -z influxdb-service 8086; do
+              echo "Waiting for InfluxDB to be ready...";
+              sleep 5;
+            done;
+            echo "InfluxDB is ready!";
+      containers:
+        - name: {{ .Values.application.name }}
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          ports:
+          - containerPort: 80
+           env:
+            - name: "INFLUXDB_API_TOKEN"
+              valueFrom:
+                secretKeyRef:
+                  name: influx-db
+                  key: INFLUXDB_ADMIN_TOKEN 
+            - name: "INFLUXDB_ORG"
+              valueFrom:
+                secretKeyRef:
+                  name: influx-db
+                  key: INFLUXDB_ORG 
+            - name: "INFLUXDB_BUCKET"
+              valueFrom:
+                secretKeyRef:
+                  name: influx-db
+                  key: INFLUXDB_BUCKET 
+            - name: "INFLUXDB_URL"
+              value: "http://influxdb.svc.cluster.local:8086"
+
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu}}
+              memory: {{ .Values.resources.limits.memory}}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory}}
