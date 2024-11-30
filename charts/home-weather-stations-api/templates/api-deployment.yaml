@@ -20,7 +20,7 @@ spec:
           - sh
           - -c
           - >
-            while ! nc -z http://influxdb.svc.cluster.local 80; do
+            while ! nc -z influxdb.home-weather-stations-api.svc.cluster.local 80; do
               echo "Waiting for InfluxDB to be ready...";
               sleep 5;
             done;
