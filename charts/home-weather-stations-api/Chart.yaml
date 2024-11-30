@@ -1,4 +1,4 @@
 apiVersion: v2
 name: home-weather-stations-api
 description: Helm Chart for the API server for my home weather stations
-version: 0.1.2
+version: 0.1.3

@@ -59,7 +59,7 @@ spec:
             - name: influxdb-data
               mountPath: /var/lib/influxdb2
             - name: influxdb-config
-              mountPath: /etc/influxdb2
+              mountPath: /etc/influxdb2/influx-configs
 
       volumes:
         - name: influxdb-data
