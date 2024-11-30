@@ -29,8 +29,8 @@ spec:
         - name: {{ .Values.application.name }}
           image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           ports:
-          - containerPort: 80
-           env:
+            - containerPort: 80
+          env:
             - name: "INFLUXDB_API_TOKEN"
               valueFrom:
                 secretKeyRef:
