@@ -17,8 +17,8 @@ spec:
         - name: influxdb
           image: "influxdb:2"
           ports:
-          - containerPort: 8086
-           env:
+            - containerPort: 8086
+          env:
             - name: "DOCKER_INFLUXDB_INIT_MODE"
               value: setup
             - name: "DOCKER_INFLUXDB_INIT_ADMIN_TOKEN"
@@ -60,7 +60,7 @@ spec:
               mountPath: /var/lib/influxdb2
             - name: influxdb-config
               mountPath: /etc/influxdb2
-              
+
       volumes:
         - name: influxdb-data
           persistentVolumeClaim:
