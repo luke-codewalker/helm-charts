@@ -13,18 +13,6 @@ spec:
       labels:
         app: {{ .Values.application.name }}
     spec:
-      initContainers:
-      - name: wait-for-influxdb
-        image: busybox:latest
-        command:
-          - sh
-          - -c
-          - >
-            while ! nc -z influxdb.home-weather-stations-api.svc.cluster.local 80; do
-              echo "Waiting for InfluxDB to be ready...";
-              sleep 5;
-            done;
-            echo "InfluxDB is ready!";
       containers:
         - name: {{ .Values.application.name }}
           image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
@@ -35,7 +23,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: influx-db
-                  key: INFLUXDB_ADMIN_TOKEN 
+                  key: INFLUXDB_TOKEN 
             - name: "INFLUXDB_ORG"
               valueFrom:
                 secretKeyRef:
