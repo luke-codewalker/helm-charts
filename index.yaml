@@ -2,6 +2,14 @@ apiVersion: v1
 entries:
   home-weather-stations-api:
   - apiVersion: v2
+    created: "2024-12-01T17:40:42.884021221Z"
+    description: Helm Chart for the API server for my home weather stations
+    digest: b1e08b17b1837ecbe68b431442b870d09a17ced2f5d45d3795fecf08729c815d
+    name: home-weather-stations-api
+    urls:
+    - https://github.com/luke-codewalker/helm-charts/releases/download/home-weather-stations-api-0.1.9/home-weather-stations-api-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
     created: "2024-12-01T17:36:19.574873879Z"
     description: Helm Chart for the API server for my home weather stations
     digest: 2e46ab595bc63ca19166226b445b4c5f8c8dc270b25ded1a3c6c7e15aa30a35f
@@ -232,4 +240,4 @@ entries:
     urls:
     - https://github.com/luke-codewalker/helm-charts/releases/download/psql-app-test-0.2.0/psql-app-test-0.2.0.tgz
     version: 0.2.0
-generated: "2024-12-01T17:36:19.574937679Z"
+generated: "2024-12-01T17:40:42.884099897Z"
