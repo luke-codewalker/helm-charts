@@ -35,7 +35,7 @@ spec:
                   name: influx-db
                   key: INFLUXDB_BUCKET 
             - name: "INFLUXDB_URL"
-              value: "http://influxdb.svc.cluster.local:8086"
+              value: "http://influxdb.influxdb.svc.cluster.local:8086"
 
           resources:
             limits:
